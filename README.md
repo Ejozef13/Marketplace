@@ -4,7 +4,7 @@ Mobile-friendly web app first: Next.js + React + TypeScript, Supabase, and Verce
 
 ## Current status
 
-This is a **team starter, not a working marketplace**. It contains a responsive project home, clearly labeled placeholder routes, a Supabase browser-client factory, the initial database migration, access-test scripts, and collaboration templates. No real accounts, listings, messages, payments, or notifications are handled by the UI yet. No cloud services have been configured or deployed.
+This is a **development foundation, not a working marketplace**. It contains a responsive project home, placeholder routes, typed Supabase data helpers, database migrations, local GMU email verification, permission/API tests, and collaboration templates. The UI does not yet handle real accounts, listings, messages, payments, or notifications. No hosted services have been configured or deployed by this contribution.
 
 ## Start the web project
 
@@ -51,11 +51,23 @@ docs/                    Team workflow, backlog, setup, and architecture
 
 Start with [SETUP](docs/SETUP.md), [TEAM](docs/TEAM.md), [BACKLOG](docs/BACKLOG.md), and [ARCHITECTURE](docs/ARCHITECTURE.md). Verification results are in [VALIDATION](docs/VALIDATION.md).
 
-## Publishing the initial repository
+## Local Supabase development
+
+With Docker running, use `npm run db:start`, `npm run db:test`, and `npm run test:data`.
+These prepare and test the local database, GMU signup hook, and data helpers.
+See [DATABASE](docs/DATABASE.md) for the schema contract, frontend examples,
+generated types, local email verification, and separate hosted rollout steps.
+GitHub pushes do not apply migrations to a hosted Supabase project.
+
+## Contributing to the shared repository
 
 Target: https://github.com/PatriotHacks/patriot-marketplace
 
-This starter is prepared for the shared repository above. The connected user has Write access, but the integration rejected file creation with `403 Resource not accessible by integration`. No files were uploaded. The integration still needs authorized repository-content write access, or an authenticated Git publishing workflow. Do not commit secrets or `node_modules`.
+Use a dedicated feature branch and a reviewed pull request. Do not push directly
+to `main`, commit secrets or `node_modules`, or apply changes to a shared database
+without coordinating with its owner. If working from an independently imported
+copy, transfer reviewed commits onto a branch based on the shared repository's
+history before proposing an upstream merge.
 
 Everyone clones the same repository and works on individual branches. Do not create six separate repositories.
 

@@ -2,13 +2,21 @@
   "name": "patriot-marketplace",
   "version": "0.1.0",
   "private": true,
-  "engines": { "node": ">=22" },
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "typecheck": "next typegen && tsc --noEmit",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "db:start": "chmod a+r supabase/templates/*.html && npx --yes supabase@3.0.0 start",
+    "db:stop": "npx --yes supabase@3.0.0 stop",
+    "db:reset": "npx --yes supabase@3.0.0 db reset --local",
+    "db:types": "node scripts/generate-database-types.mjs",
+    "db:test": "node scripts/test-database.mjs",
+    "test:data": "node --experimental-strip-types --test tests/data/*.test.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.0.0",

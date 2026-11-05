@@ -1,6 +1,10 @@
 # Implementation backlog
 
-All items below remain open. The starter is repository infrastructure, not a completed feature release.
+All items below remain open. The foundation is not a completed feature release.
+The database-security increment adds locally tested SQL permissions, a GMU signup
+hook, email-code configuration, generated types and data helpers. AUTH-01 and
+DATA-01 remain open until hosted development setup and their remaining acceptance
+checks are complete; frontend integration is separate.
 
 | ID | Owner | Deliverable and acceptance |
 |---|---|---|

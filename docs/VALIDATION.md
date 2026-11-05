@@ -1,5 +1,36 @@
 # Verification record
 
+## Database-security increment — November 5, 2026
+
+Validated against the real local Supabase stack (CLI 3.0.0, PostgreSQL 17),
+not an emulated Auth schema:
+
+- Both migrations applied on a clean local reset; stop/restart also succeeded.
+- Three SQL assertion files passed: foundation permissions, current membership
+  changes, and signup-hook domain checks/execution privileges. Fixtures roll back.
+- Nine API scenarios passed in one parent test (Node reports 10 tests total):
+  rejected non-GMU signup; captured email OTP with invalid/reused-code rejection;
+  automatic profiles and owner-only editing; private listing drafts; publication,
+  search and pagination; invalid writes and ownership forgery; private favorites;
+  archival; and anonymous denial. Fixtures are removed after the suite.
+- TypeScript checks and production build passed.
+- Existing desktop/mobile-sized Chromium navigation tests passed (2 tests), using
+  installed Chromium via an external cloud configuration. Not Safari or real iOS.
+- Types were generated from the actual public schema; CI checks regeneration drift.
+- Local `.env.local` uses only the local API URL/public key and is ignored by Git.
+
+Cloud-only startup needed local Docker proxy exclusions, a BusyBox loopback
+health-check correction, and public email-template read permissions. No external
+network route or TLS verification was bypassed. Teammates on a normal Docker setup
+use the documented npm scripts; the cloud helper stays outside the repository.
+
+Hosted Supabase, SMTP delivery to real GMU inboxes, time-based code expiration,
+login/session UI, Storage, Realtime, transactions and production deployment remain
+unverified or unfinished. CI configuration was added; a local pass does not claim
+GitHub Actions has run. See [DATABASE.md](DATABASE.md) for rollout requirements.
+
+## Original starter verification (historical)
+
 Prepared October 8, 2026.
 
 - Dependency installation completed and generated package-lock.json. Installation audit reported zero vulnerabilities at that time.

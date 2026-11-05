@@ -7,7 +7,7 @@ The browser loads a Next.js application hosted on Vercel. Supabase provides Auth
 
 RLS and restricted column grants prevent users from changing identity/ownership columns. Only the owner can edit a listing; other eligible users see available listings. Favorites are visible only to the user who saved them. Users archive listings rather than delete historical records. Initial application roles cannot delete accounts or listings.
 
-This foundation intentionally supports draft/available/archived only. Add pending/sold when atomic transaction operations are implemented and tested. Authentication hooks, storage policies, messaging, and moderation are not yet implemented.
+This foundation intentionally supports draft/available/archived only. Add pending/sold when atomic transaction operations are implemented and tested. A GMU signup hook and local email-code configuration now complement RLS; hosted Auth setup and UI session integration remain outstanding. Storage policies, messaging, and moderation are not yet implemented. See [DATABASE.md](DATABASE.md) for the frontend contract and local tests.
 
 ## Next schema increments
 1. `listing_images`: private storage path, listing ID, display order.
