@@ -1,0 +1,24 @@
+name: Feature task
+description: Assign a small, testable part of the marketplace.
+title: '[Feature] '
+body:
+  - type: input
+    id: owner
+    attributes:
+      label: Owner and reviewer
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Expected behavior and acceptance criteria
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies and milestone
+  - type: textarea
+    id: verification
+    attributes:
+      label: Functional, failure, and access tests
